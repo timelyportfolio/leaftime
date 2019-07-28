@@ -7,7 +7,8 @@
 #' @param sliderOpts
 #' @param onchange
 #'
-#' @return
+#' @importFrom leaflet getMapData
+#' @return \code{leaflet htmlwidget}
 #' @export
 #'
 #' @example inst/examples/example_leaftime.R

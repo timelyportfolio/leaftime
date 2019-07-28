@@ -16,4 +16,5 @@ Depends:
 Imports:
     htmlwidgets,
     htmltools
-
+Suggests:
+    geojsonio

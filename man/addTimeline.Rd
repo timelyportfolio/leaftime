@@ -11,6 +11,9 @@ addTimeline(map = NULL, data = leaflet::getMapData(map),
 \arguments{
 \item{onchange}{}
 }
+\value{
+\code{leaflet htmlwidget}
+}
 \description{
 Title
 }
