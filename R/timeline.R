@@ -2,11 +2,15 @@
 #'
 #' @param map
 #' @param data
+#' @param group
+#' @param timelineOpts
+#' @param sliderOpts
+#' @param onchange
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @example inst/examples/example_leaftime.R
 addTimeline <- function(
   map = NULL,
   data = leaflet::getMapData(map),

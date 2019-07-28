@@ -31,6 +31,7 @@ timelineOptions <- function(
 #' @param steps
 #' @param duration
 #' @param waitToUpdateMap
+#' @param showTicks
 #'
 #' @return
 #' @export

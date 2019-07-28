@@ -5,12 +5,113 @@
 \title{Title}
 \usage{
 addTimeline(map = NULL, data = leaflet::getMapData(map),
-  layerId = NULL, group = NULL, timelineOptions = timelineOptions(),
-  sliderOptions = sliderOptions(), onchange = NULL)
+  group = NULL, timelineOpts = timelineOptions(),
+  sliderOpts = sliderOptions(), onchange = NULL)
 }
 \arguments{
-\item{data}{}
+\item{onchange}{}
 }
 \description{
 Title
+}
+\examples{
+library(leaflet)
+library(leaftime)
+library(htmltools)
+
+#Build data.frame with 10 obs + 3 cols
+power <- data.frame(
+  "Latitude" = c(33.515556, 38.060556, 47.903056, 49.71, 49.041667, 31.934167, 54.140586, 54.140586, 48.494444, 48.494444),
+  "Longitude" = c(129.837222, -77.789444, 7.563056, 8.415278, 9.175, -82.343889, 13.664422, 13.664422, 17.681944, 17.681944),
+  "start" = seq.Date(as.Date("2015-01-01"), by = "day", length.out = 10),
+  "end" = seq.Date(as.Date("2015-01-01"), by = "day", length.out = 10) + 1
+)
+
+# use geojsonio to convert our data.frame
+#  to GeoJSON which timeline expects
+power_geo <- geojsonio::geojson_json(power,lat="Latitude",lon="Longitude")
+
+# we can add data in addTimeline
+leaflet() \%>\%
+  addTiles() \%>\%
+  setView(44.0665,23.74667,2) \%>\%
+  addTimeline(data = power_geo)
+
+# or we can add data in leaflet()
+leaflet(power_geo) \%>\%
+  addTiles() \%>\%
+  setView(44.0665,23.74667,2) \%>\%
+  addTimeline()
+
+# we can control the slider controls through sliderOptions
+leaflet(power_geo) \%>\%
+  addTiles() \%>\%
+  setView(44.0665,23.74667,2) \%>\%
+  addTimeline(
+    sliderOpts = sliderOptions(
+      formatOutput = htmlwidgets::JS("function(date) {return new Date(date).toDateString()}"),
+      position = "bottomright",
+      step = 10,
+      duration = 3000,
+      showTicks = FALSE
+    )
+  )
+
+# we can control the timeline through timelineOptions
+#  wondering what should be the default
+#  currently timeline uses marker
+leaflet(power_geo) \%>\%
+  addTiles() \%>\%
+  setView(44.0665,23.74667,2) \%>\%
+  addTimeline(
+    timelineOpts = timelineOptions(
+      pointToLayer = htmlwidgets::JS(
+"
+function(data, latlng) {
+  return L.circleMarker(latlng, {
+    radius: 3
+  })
+}
+"
+      )
+    )
+  )
+
+# we can use onchange to handle timeline change event
+leaflet(power_geo) \%>\%
+  addTiles() \%>\%
+  setView(44.0665,23.74667,2) \%>\%
+  addTimeline(
+    onchange = htmlwidgets::JS("function(e) {console.log(e, arguments)}")
+  )
+
+
+browsable(
+  tagList(
+    tags$head(
+      tags$style(
+"
+.leaflet-bottom.leaflet-left{
+  width: 100\%;
+}
+.leaflet-control-container .leaflet-timeline-controls{
+  box-sizing: border-box;
+  width: 100\%;
+  margin: 0;
+  margin-bottom: 15px;
+}
+"
+      )
+    ),
+    leaflet(power_geo) \%>\%
+      addTiles() \%>\%
+      setView(44.0665,23.74667,2) \%>\%
+      addTimeline(
+        sliderOpts = sliderOptions(
+          formatOutput = htmlwidgets::JS("function(d) {return new Date(d).toDateString();}")
+        ),
+        onchange = htmlwidgets::JS("function(e) {console.log(e, arguments)}")
+      )
+  )
+)
 }

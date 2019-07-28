@@ -7,10 +7,10 @@
 sliderOptions(start = NULL, end = NULL, position = NULL,
   formatOutput = NULL, enablePlayback = NULL,
   enableKeyboardControls = NULL, steps = NULL, duration = NULL,
-  waitToUpdateMap = NULL)
+  waitToUpdateMap = NULL, showTicks = NULL)
 }
 \arguments{
-\item{waitToUpdateMap}{}
+\item{showTicks}{}
 }
 \description{
 Title
