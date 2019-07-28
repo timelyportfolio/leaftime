@@ -1,0 +1,48 @@
+#' Title
+#'
+#' @param map
+#' @param data
+#'
+#' @return
+#' @export
+#'
+#' @examples
+addTimeline <- function(
+  map = NULL,
+  data = leaflet::getMapData(map),
+  group = NULL,
+  timelineOpts = timelineOptions(),
+  sliderOpts = sliderOptions(),
+  onchange = NULL
+) {
+  if(is.null(map)) {
+    stop(
+      "The map argument is NULL.  Please rerun with a leaflet htmlwidget as map argument.",
+      call. = FALSE
+    )
+  }
+  if(!inherits(map, "leaflet")) {
+    stop(
+      "Expecting map argument to be a leaflet map not a ",
+      class(map),
+      ".  Please supply a leaflet htmlwidget as map.",
+      call. = FALSE
+    )
+  }
+
+  map$dependencies <- c(
+    map$dependencies,
+    leaftimeDependency()
+  )
+
+  leaflet::invokeMethod(
+    map,
+    data,
+    "addTimeline",
+    group,
+    data,
+    timelineOpts,
+    sliderOpts,
+    onchange
+  )
+}
