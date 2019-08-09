@@ -10,7 +10,7 @@
 #' @examples
 timelineOptions <- function(
   getInterval = NULL,
-  pointToLayer = NULL,
+  pointToLayer = htmlwidgets::JS("function(data, latlng) { return L.circleMarker(latlng, { radius: 3 }) }"),
   drawOnSetTime = NULL
 ) {
   Filter(Negate(is.null),list(
@@ -41,7 +41,7 @@ sliderOptions <- function(
   start = NULL,
   end = NULL,
   position = NULL,
-  formatOutput = NULL,
+  formatOutput = htmlwidgets::JS("function(date) {var dt = new Date(date); return dt.toDateString() + '<br>' + dt.toLocaleTimeString()}"),
   enablePlayback = NULL,
   enableKeyboardControls = NULL,
   steps = NULL,

@@ -1,0 +1,12 @@
+.html-widget .leaflet-control.leaflet-timeline-control {
+  width: 250px;
+}
+
+.html-widget .leaflet-control.leaflet-timeline-control .sldr-ctrl-container {
+  width: 48%;
+  display: inline-block;
+}
+
+.html-widget .leaflet-control.leaflet-timeline-control input[type=range] {
+  width: 45%;
+}

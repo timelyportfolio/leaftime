@@ -13,6 +13,7 @@ leaftimeDependency <- function() {
         "Leaflet.timeline/leaflet.timeline.js",
         "binding/leaftime-binding.js"
       ),
+      style = "binding/leaftime-binding.css",
       package = "leaftime",
       all_files = FALSE
     )
