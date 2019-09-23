@@ -80,6 +80,7 @@ function(data, latlng) {
     )
   )
 
+# change styling manually
 leaflet(power_geo) \%>\%
   addTiles() \%>\%
   setView(44.0665,23.74667,2) \%>\%
@@ -99,6 +100,41 @@ function(data, latlng) {
       )
     )
   )
+
+# change style with styleOptions helper function
+#   this will change style for all points
+leaflet(power_geo) \%>\%
+  addTiles() \%>\%
+  setView(44.0665,23.74667,2) \%>\%
+  addTimeline(
+    timelineOpts = timelineOptions(
+      styleOptions = styleOptions(
+        radius = 10,
+        color = "black",
+        fillColor = "pink",
+        fillOpacity = 1
+      )
+    )
+  )
+
+# to style each point differently based on the data
+power_styled <- power
+power_styled$color <- topo.colors(6)[ceiling(runif(nrow(power),0,6))]
+power_styled$radius <- ceiling(runif(nrow(power),3,10))
+leaflet(geojsonio::geojson_json(power_styled)) \%>\%
+  addTiles() \%>\%
+  setView(44.0665,23.74667,2) \%>\%
+  addCircleMarkers(data = power_styled, lat = ~Latitude, lng = ~Longitude, radius = 11) \%>\%
+  addTimeline(
+    timelineOpts = timelineOptions(
+      styleOptions = styleOptions(
+        radius = htmlwidgets::JS("function getRadius(d) {return +d.properties.radius}"),
+        color = htmlwidgets::JS("function getColor(d) {return d.properties.color}"),
+        fillOpacity = 1
+      )
+    )
+  )
+
 
 # we can use onchange to handle timeline change event
 leaflet(power_geo) \%>\%

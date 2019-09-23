@@ -12,7 +12,18 @@ timelineOptions <- function(
   getInterval = NULL,
   pointToLayer = htmlwidgets::JS("
 function(data, latlng) {
-  return L.circleMarker(latlng, this.styleOptions);
+  debugger;
+  var options = this;
+  var styleOptions = {};
+
+  Object.keys(options.styleOptions).forEach(function(ky) {
+    if(typeof options.styleOptions[ky] === 'function') {
+      styleOptions[ky] = options.styleOptions[ky](data);
+    } else {
+      styleOptions[ky] = options.styleOptions[ky];
+    }
+  })
+  return L.circleMarker(latlng, styleOptions);
 }
 "
   ),
