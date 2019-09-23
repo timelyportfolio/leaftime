@@ -4,8 +4,9 @@
 \alias{timelineOptions}
 \title{Title}
 \usage{
-timelineOptions(getInterval = NULL, pointToLayer = NULL,
-  drawOnSetTime = NULL)
+timelineOptions(getInterval = NULL,
+  pointToLayer = htmlwidgets::JS("\\nfunction(data, latlng) {\\n  return L.circleMarker(latlng, this.styleOptions);\\n}\\n"),
+  styleOptions = styleOptions(), drawOnSetTime = NULL)
 }
 \arguments{
 \item{drawOnSetTime}{}

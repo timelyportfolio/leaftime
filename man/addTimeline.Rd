@@ -80,6 +80,26 @@ function(data, latlng) {
     )
   )
 
+leaflet(power_geo) \%>\%
+  addTiles() \%>\%
+  setView(44.0665,23.74667,2) \%>\%
+  addTimeline(
+    timelineOpts = timelineOptions(
+      pointToLayer = htmlwidgets::JS(
+"
+function(data, latlng) {
+  return L.circleMarker(latlng, {
+    radius: 10,
+    color: 'black',
+    fillColor: 'pink',
+    fillOpacity: 1
+  })
+}
+"
+      )
+    )
+  )
+
 # we can use onchange to handle timeline change event
 leaflet(power_geo) \%>\%
   addTiles() \%>\%

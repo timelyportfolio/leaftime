@@ -10,13 +10,49 @@
 #' @examples
 timelineOptions <- function(
   getInterval = NULL,
-  pointToLayer = htmlwidgets::JS("function(data, latlng) { return L.circleMarker(latlng, { radius: 3 }) }"),
+  pointToLayer = htmlwidgets::JS("
+function(data, latlng) {
+  return L.circleMarker(latlng, this.styleOptions);
+}
+"
+  ),
+  styleOptions = styleOptions(),
   drawOnSetTime = NULL
 ) {
   Filter(Negate(is.null),list(
     getInterval = getInterval,
     pointToLayer = pointToLayer,
+    styleOptions = styleOptions,
     drawOnSetTime = drawOnSetTime
+  ))
+}
+
+#' Title
+#'
+#' @param radius
+#' @param color
+#' @param stroke
+#' @param fill
+#' @param fillColor
+#' @param fillOpacity
+#'
+#' @return
+#' @export
+styleOptions <- function(
+  radius = 3,
+  color = NULL,
+  stroke = TRUE,
+  fill = TRUE,
+  fillColor = NULL,
+  fillOpacity = NULL
+) {
+  Filter(Negate(is.null), list(
+    radius = radius,
+    color = color,
+    stroke = stroke,
+    fill = fill,
+    fillColor = fillColor,
+    fillOpacity = fillOpacity
   ))
 }
 

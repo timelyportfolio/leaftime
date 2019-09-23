@@ -1,6 +1,10 @@
 LeafletWidget.methods.addTimeline = function(group, data, timelineOptions, sliderOptions, onchange) {
   (function() {
     var map = this;
+
+    // we need to bind the timelineOptions so that they are available to pointToLayer
+    timelineOptions.pointToLayer = timelineOptions.pointToLayer.bind(timelineOptions);
+
     var timelineControl = L.timelineSliderControl(sliderOptions);
     var timeline = L.timeline(data, timelineOptions);
 

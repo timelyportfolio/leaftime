@@ -3,5 +3,6 @@
 export(addTimeline)
 export(leaftimeDependency)
 export(sliderOptions)
+export(styleOptions)
 export(timelineOptions)
 importFrom(leaflet,getMapData)

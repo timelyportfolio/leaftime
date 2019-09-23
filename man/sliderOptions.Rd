@@ -5,9 +5,9 @@
 \title{Title}
 \usage{
 sliderOptions(start = NULL, end = NULL, position = NULL,
-  formatOutput = NULL, enablePlayback = NULL,
-  enableKeyboardControls = NULL, steps = NULL, duration = NULL,
-  waitToUpdateMap = NULL, showTicks = NULL)
+  formatOutput = htmlwidgets::JS("function(date) {var dt = new Date(date); return dt.toDateString() + '<br>' + dt.toLocaleTimeString()}"),
+  enablePlayback = NULL, enableKeyboardControls = NULL, steps = NULL,
+  duration = NULL, waitToUpdateMap = NULL, showTicks = NULL)
 }
 \arguments{
 \item{showTicks}{}
