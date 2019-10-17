@@ -132,10 +132,10 @@ browsable(
     tags$head(
       tags$style(
 "
-.leaflet-bottom.leaflet-left{
+#leaflet-wide-timeline .leaflet-bottom.leaflet-left{
   width: 100%;
 }
-.leaflet-control-container .leaflet-timeline-controls{
+#leaflet-wide-timeline .leaflet-control-container .leaflet-timeline-control {
   box-sizing: border-box;
   width: 100%;
   margin: 0;
@@ -144,7 +144,7 @@ browsable(
 "
       )
     ),
-    leaflet(power_geo) %>%
+    leaflet(power_geo, elementId = "leaflet-wide-timeline") %>%
       addTiles() %>%
       setView(44.0665,23.74667,2) %>%
       addTimeline(
