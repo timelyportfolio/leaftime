@@ -12,7 +12,6 @@ timelineOptions <- function(
   getInterval = NULL,
   pointToLayer = htmlwidgets::JS("
 function(data, latlng) {
-  debugger;
   var options = this;
   var styleOptions = {};
 
@@ -27,7 +26,7 @@ function(data, latlng) {
 }
 "
   ),
-  styleOptions = styleOptions(),
+  styleOptions = leaftime::styleOptions(),
   drawOnSetTime = NULL
 ) {
   Filter(Negate(is.null),list(

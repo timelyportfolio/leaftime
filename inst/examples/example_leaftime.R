@@ -111,7 +111,8 @@ leaflet(geojsonio::geojson_json(power_styled)) %>%
       styleOptions = styleOptions(
         radius = htmlwidgets::JS("function getRadius(d) {return +d.properties.radius}"),
         color = htmlwidgets::JS("function getColor(d) {return d.properties.color}"),
-        fillOpacity = 1
+        fillOpacity = 1,
+        stroke = FALSE
       )
     )
   )

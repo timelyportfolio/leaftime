@@ -4,9 +4,9 @@
 \alias{addTimeline}
 \title{Title}
 \usage{
-addTimeline(map = NULL, data = leaflet::getMapData(map),
-  group = NULL, timelineOpts = timelineOptions(),
-  sliderOpts = sliderOptions(), onchange = NULL)
+addTimeline(map = NULL, data = NULL, group = NULL,
+  timelineOpts = timelineOptions(), sliderOpts = sliderOptions(),
+  onchange = NULL)
 }
 \arguments{
 \item{onchange}{}
@@ -131,7 +131,8 @@ leaflet(geojsonio::geojson_json(power_styled)) \%>\%
       styleOptions = styleOptions(
         radius = htmlwidgets::JS("function getRadius(d) {return +d.properties.radius}"),
         color = htmlwidgets::JS("function getColor(d) {return d.properties.color}"),
-        fillOpacity = 1
+        fillOpacity = 1,
+        stroke = FALSE
       )
     )
   )

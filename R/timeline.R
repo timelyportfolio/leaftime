@@ -14,7 +14,7 @@
 #' @example inst/examples/example_leaftime.R
 addTimeline <- function(
   map = NULL,
-  data = leaflet::getMapData(map),
+  data = NULL,
   group = NULL,
   timelineOpts = timelineOptions(),
   sliderOpts = sliderOptions(),
@@ -33,6 +33,10 @@ addTimeline <- function(
       ".  Please supply a leaflet htmlwidget as map.",
       call. = FALSE
     )
+  }
+
+  if(is.null(data)) {
+    data <- leaflet::getMapData(map)
   }
 
   map$dependencies <- c(

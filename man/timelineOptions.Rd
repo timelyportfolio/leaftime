@@ -5,8 +5,8 @@
 \title{Title}
 \usage{
 timelineOptions(getInterval = NULL,
-  pointToLayer = htmlwidgets::JS("\\nfunction(data, latlng) {\\n  debugger;\\n  var options = this;\\n  var styleOptions = {};\\n\\n  Object.keys(options.styleOptions).forEach(function(ky) {\\n    if(typeof options.styleOptions[ky] === 'function') {\\n      styleOptions[ky] = options.styleOptions[ky](data);\\n    } else {\\n      styleOptions[ky] = options.styleOptions[ky];\\n    }\\n  })\\n  return L.circleMarker(latlng, styleOptions);\\n}\\n"),
-  styleOptions = styleOptions(), drawOnSetTime = NULL)
+  pointToLayer = htmlwidgets::JS("\\nfunction(data, latlng) {\\n  var options = this;\\n  var styleOptions = {};\\n\\n  Object.keys(options.styleOptions).forEach(function(ky) {\\n    if(typeof options.styleOptions[ky] === 'function') {\\n      styleOptions[ky] = options.styleOptions[ky](data);\\n    } else {\\n      styleOptions[ky] = options.styleOptions[ky];\\n    }\\n  })\\n  return L.circleMarker(latlng, styleOptions);\\n}\\n"),
+  styleOptions = leaftime::styleOptions(), drawOnSetTime = NULL)
 }
 \arguments{
 \item{drawOnSetTime}{}
