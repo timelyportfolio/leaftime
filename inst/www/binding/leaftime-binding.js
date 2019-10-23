@@ -1,4 +1,4 @@
-LeafletWidget.methods.addTimeline = function(group, data, timelineOptions, sliderOptions, onchange) {
+LeafletWidget.methods.addTimeline = function(group, data, timelineOptions, sliderOptions, width, onchange) {
   (function() {
     var map = this;
 
@@ -11,6 +11,11 @@ LeafletWidget.methods.addTimeline = function(group, data, timelineOptions, slide
     timelineControl.addTo(map);
     timelineControl.addTimelines(timeline);
     timeline.addTo(map);
+
+    if(typeof(width) !== 'undefined' && width !== null) {
+      $(timelineControl.container.parentElement).css({width: width});
+      $(timelineControl.container).css({width: '100%'});
+    }
 
     if(typeof(onchange) !== 'undefined' && onchange !== null) {
       timeline.on('change', onchange);

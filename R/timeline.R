@@ -5,6 +5,7 @@
 #' @param group
 #' @param timelineOpts
 #' @param sliderOpts
+#' @param width
 #' @param onchange
 #'
 #' @importFrom leaflet getMapData
@@ -18,6 +19,7 @@ addTimeline <- function(
   group = NULL,
   timelineOpts = timelineOptions(),
   sliderOpts = sliderOptions(),
+  width = NULL,
   onchange = NULL
 ) {
   if(is.null(map)) {
@@ -52,6 +54,7 @@ addTimeline <- function(
     data,
     timelineOpts,
     sliderOpts,
+    width,
     onchange
   )
 }

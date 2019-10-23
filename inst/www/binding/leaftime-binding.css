@@ -1,4 +1,5 @@
 .html-widget .leaflet-control.leaflet-timeline-control {
+  /* 250px seems to be smallest without jumping width */
   width: 250px;
 }
 

@@ -6,7 +6,7 @@
 \usage{
 addTimeline(map = NULL, data = NULL, group = NULL,
   timelineOpts = timelineOptions(), sliderOpts = sliderOptions(),
-  onchange = NULL)
+  width = NULL, onchange = NULL)
 }
 \arguments{
 \item{onchange}{}
@@ -18,6 +18,8 @@ addTimeline(map = NULL, data = NULL, group = NULL,
 Title
 }
 \examples{
+if(interactive) {
+
 library(leaflet)
 library(leaftime)
 library(htmltools)
@@ -147,32 +149,12 @@ leaflet(power_geo) \%>\%
   )
 
 
-browsable(
-  tagList(
-    tags$head(
-      tags$style(
-"
-#leaflet-wide-timeline .leaflet-bottom.leaflet-left{
-  width: 100\%;
-}
-#leaflet-wide-timeline .leaflet-control-container .leaflet-timeline-control {
-  box-sizing: border-box;
-  width: 100\%;
-  margin: 0;
-  margin-bottom: 15px;
-}
-"
-      )
-    ),
-    leaflet(power_geo, elementId = "leaflet-wide-timeline") \%>\%
-      addTiles() \%>\%
-      setView(44.0665,23.74667,2) \%>\%
-      addTimeline(
-        sliderOpts = sliderOptions(
-          formatOutput = htmlwidgets::JS("function(d) {return new Date(d).toDateString();}")
-        ),
-        onchange = htmlwidgets::JS("function(e) {console.log(e, arguments)}")
-      )
+leaflet(power_geo, elementId = "leaflet-wide-timeline") \%>\%
+  addTiles() \%>\%
+  setView(44.0665,23.74667,2) \%>\%
+  addTimeline(
+    width = "96\%"
   )
-)
+
+}
 }
