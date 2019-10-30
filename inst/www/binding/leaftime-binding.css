@@ -11,3 +11,8 @@
 .html-widget .leaflet-control.leaflet-timeline-control input[type=range] {
   width: 45%;
 }
+
+/* for IE turn off tooltip over slider */
+input[type=range]::-ms-tooltip {
+    display: none;
+}
