@@ -18,7 +18,7 @@ addTimeline(map = NULL, data = NULL, group = NULL,
 Title
 }
 \examples{
-if(interactive) {
+if(interactive()) {
 
 library(leaflet)
 library(leaftime)

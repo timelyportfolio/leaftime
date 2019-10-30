@@ -1,4 +1,4 @@
-if(interactive) {
+if(interactive()) {
 
 library(leaflet)
 library(leaftime)
