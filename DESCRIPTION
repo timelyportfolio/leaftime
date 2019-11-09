@@ -1,12 +1,25 @@
 Package: leaftime
-Type: Package
-Title: What the Package Does (Title Case)
+Title: 'Leaflet-timeline' Plugin for Leaflet
 Version: 0.1.2
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Date: 2019-11-09
+Authors@R: c(
+      person(
+        "Jonathan","Skeate"
+        , role = c("aut", "cph")
+        , comment = "leaflet-timeline library, https://github.com/skeate/Leaflet.timeline"
+      ),
+      person(
+        "Kent", "Russell"
+        , role = c("aut", "cre")
+        , comment = "R interface"
+        , email = "kent.russell@timelyportfolio.com"
+      )
+    )
+Maintainer: Kent Russell <kent.russell@timelyportfolio.com>
+URL: https://github.com/timelyportfolio/leaftime
+BugReports: https://github.com/timelyportfolio/lafime/issues
+Description: Use `leaflet-timeline` plugin with leaflet 'htmlwidget'.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

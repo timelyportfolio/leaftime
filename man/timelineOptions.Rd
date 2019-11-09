@@ -2,15 +2,31 @@
 % Please edit documentation in R/options.R
 \name{timelineOptions}
 \alias{timelineOptions}
-\title{Title}
+\title{Timeline Options Helper}
 \usage{
 timelineOptions(getInterval = NULL,
   pointToLayer = htmlwidgets::JS("\\nfunction(data, latlng) {\\n  var options = this;\\n  var styleOptions = {};\\n\\n  Object.keys(options.styleOptions).forEach(function(ky) {\\n    if(typeof options.styleOptions[ky] === 'function') {\\n      styleOptions[ky] = options.styleOptions[ky](data);\\n    } else {\\n      styleOptions[ky] = options.styleOptions[ky];\\n    }\\n  })\\n  return L.circleMarker(latlng, styleOptions);\\n}\\n"),
   styleOptions = leaftime::styleOptions(), drawOnSetTime = NULL)
 }
 \arguments{
-\item{drawOnSetTime}{}
+\item{getInterval}{\code{htmlwidgets::JS} function that returns an object with
+\code{start} and \code{end} properties to specify the start and end
+of the timeline range.  See
+\href{https://github.com/skeate/Leaflet.timeline#getinterval-function----optional}{getInterval}.}
+
+\item{pointToLayer}{\code{htmlwidgets::JS} function that determines what is drawn
+on the map.  By default, a circle marker will be drawn.  See
+\href{https://leafletjs.com/reference-1.5.0.html#geojson-pointtolayer}{pointToLayer}.}
+
+\item{drawOnSetTime}{\code{logical} to draw when time is set.  Default is \code{TRUE}.  See
+\href{https://github.com/skeate/Leaflet.timeline#drawonsettime-boolean----optional-default-true}{drawOnSetTime}.}
+}
+\value{
+\code{list}
 }
 \description{
-Title
+Timeline Options Helper
+}
+\seealso{
+\code{\link{addTimeline}}
 }

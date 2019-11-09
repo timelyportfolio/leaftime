@@ -2,20 +2,35 @@
 % Please edit documentation in R/timeline.R
 \name{addTimeline}
 \alias{addTimeline}
-\title{Title}
+\title{Add 'leaflet-timeline' To Leaflet Map}
 \usage{
 addTimeline(map = NULL, data = NULL, group = NULL,
   timelineOpts = timelineOptions(), sliderOpts = sliderOptions(),
   width = NULL, onchange = NULL)
 }
 \arguments{
-\item{onchange}{}
+\item{map}{\code{htmlwidget} leaflet map to which a timeline will be added.}
+
+\item{data}{\code{geojson} with data for the timeline.  Each feature should have
+start and end properties so the timeline will know when to show the
+feature.}
+
+\item{group}{\code{string} name of the group for the timeline control.}
+
+\item{timelineOpts}{\code{list} from \code{\link{timelineOptions}}.}
+
+\item{sliderOpts}{\code{list} from \code{\link{sliderOptions}}.}
+
+\item{width}{valid \code{CSS} width for the timeline control.  If given as a percentage,
+then \code{95\%} or less is recommended to show within the bounds of the map.}
+
+\item{onchange}{\code{htmlwidgets::JS} function callback for when the timeline is changed.}
 }
 \value{
 \code{leaflet htmlwidget}
 }
 \description{
-Title
+Add 'leaflet-timeline' To Leaflet Map
 }
 \examples{
 if(interactive()) {
@@ -157,4 +172,7 @@ leaflet(power_geo, elementId = "leaflet-wide-timeline") \%>\%
   )
 
 }
+}
+\seealso{
+\code{\link{timelineOptions}},\code{\link{sliderOptions}}
 }

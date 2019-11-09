@@ -1,16 +1,20 @@
-#' Title
+#' Add 'leaflet-timeline' To Leaflet Map
 #'
-#' @param map
-#' @param data
-#' @param group
-#' @param timelineOpts
-#' @param sliderOpts
-#' @param width
-#' @param onchange
+#' @param map \code{htmlwidget} leaflet map to which a timeline will be added.
+#' @param data \code{geojson} with data for the timeline.  Each feature should have
+#'          start and end properties so the timeline will know when to show the
+#'          feature.
+#' @param group \code{string} name of the group for the timeline control.
+#' @param timelineOpts \code{list} from \code{\link{timelineOptions}}.
+#' @param sliderOpts \code{list} from \code{\link{sliderOptions}}.
+#' @param width valid \code{CSS} width for the timeline control.  If given as a percentage,
+#'          then \code{95\%} or less is recommended to show within the bounds of the map.
+#' @param onchange \code{htmlwidgets::JS} function callback for when the timeline is changed.
 #'
-#' @importFrom leaflet getMapData
 #' @return \code{leaflet htmlwidget}
 #' @export
+#'
+#' @seealso \code{\link{timelineOptions}},\code{\link{sliderOptions}}
 #'
 #' @example inst/examples/example_leaftime.R
 addTimeline <- function(

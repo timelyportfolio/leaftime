@@ -2,7 +2,7 @@
 % Please edit documentation in R/options.R
 \name{sliderOptions}
 \alias{sliderOptions}
-\title{Title}
+\title{Timeline Slider Options Helper}
 \usage{
 sliderOptions(start = NULL, end = NULL, position = NULL,
   formatOutput = htmlwidgets::JS("function(date) {var dt = new Date(date); return dt.toDateString() + '<br>' + dt.toLocaleTimeString()}"),
@@ -10,8 +10,35 @@ sliderOptions(start = NULL, end = NULL, position = NULL,
   duration = NULL, waitToUpdateMap = NULL, showTicks = NULL)
 }
 \arguments{
-\item{showTicks}{}
+\item{start}{\code{number} that will be the starting value of the slider.}
+
+\item{end}{\code{number} that will be the ending value of the slider.}
+
+\item{position}{\code{string} that will be the position of the timeline.  See
+\href{https://leafletjs.com/reference-1.5.0.html#control-position}{position options}.}
+
+\item{formatOutput}{\code{htmlwidgets::JS} function that outputs the date as a string
+in the timeline.}
+
+\item{enablePlayback}{\code{logical} to show playback controls.}
+
+\item{enableKeyboardControls}{\code{logical} to allow playback to be controlled by
+the keyboard.}
+
+\item{steps}{\code{number} for how many steps in the timeline.}
+
+\item{duration}{\code{number} for the minimum time in milliseconds of the length of playback.}
+
+\item{waitToUpdateMap}{\code{logical} to wait until user is finished before redrawing.}
+
+\item{showTicks}{\code{logical} to show ticks on the slider.}
+}
+\value{
+\code{list}
 }
 \description{
-Title
+Timeline Slider Options Helper
+}
+\seealso{
+\code{\link{addTimeline}}
 }

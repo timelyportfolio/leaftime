@@ -2,14 +2,28 @@
 % Please edit documentation in R/options.R
 \name{styleOptions}
 \alias{styleOptions}
-\title{Title}
+\title{Timeline Style Options Helper}
 \usage{
 styleOptions(radius = 3, color = NULL, stroke = TRUE, fill = TRUE,
   fillColor = NULL, fillOpacity = NULL)
 }
 \arguments{
-\item{fillOpacity}{}
+\item{radius}{\code{number} to specify radius of drawn circle.}
+
+\item{color, stroke, fillColor}{valid \code{CSS} color the circle.
+\code{fill} and/or \code{stroke} will
+override \code{color}.}
+
+\item{fill}{\code{logical} to determine if drawn will be filled with \code{color}.}
+
+\item{fillOpacity}{\code{number} between 0 and 1 to set opacity of the drawn circle.}
+}
+\value{
+\code{list}
 }
 \description{
-Title
+Timeline Style Options Helper
+}
+\seealso{
+\code{\link{addTimeline}}
 }

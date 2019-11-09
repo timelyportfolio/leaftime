@@ -1,13 +1,19 @@
-#' Title
+#' Timeline Options Helper
 #'
-#' @param getInterval
-#' @param pointToLayer
-#' @param drawOnSetTime
+#' @param getInterval \code{htmlwidgets::JS} function that returns an object with
+#'          \code{start} and \code{end} properties to specify the start and end
+#'          of the timeline range.  See
+#'          \href{https://github.com/skeate/Leaflet.timeline#getinterval-function----optional}{getInterval}.
+#' @param pointToLayer \code{htmlwidgets::JS} function that determines what is drawn
+#'          on the map.  By default, a circle marker will be drawn.  See
+#'          \href{https://leafletjs.com/reference-1.5.0.html#geojson-pointtolayer}{pointToLayer}.
+#' @param drawOnSetTime \code{logical} to draw when time is set.  Default is \code{TRUE}.  See
+#'          \href{https://github.com/skeate/Leaflet.timeline#drawonsettime-boolean----optional-default-true}{drawOnSetTime}.
 #'
-#' @return
+#' @return \code{list}
+#' @seealso \code{\link{addTimeline}}
 #' @export
-#'
-#' @examples
+
 timelineOptions <- function(
   getInterval = NULL,
   pointToLayer = htmlwidgets::JS("
@@ -37,16 +43,17 @@ function(data, latlng) {
   ))
 }
 
-#' Title
+#' Timeline Style Options Helper
 #'
-#' @param radius
-#' @param color
-#' @param stroke
-#' @param fill
-#' @param fillColor
-#' @param fillOpacity
+#' @param radius \code{number} to specify radius of drawn circle.
+#' @param color,stroke,fillColor valid \code{CSS} color the circle.
+#'           \code{fill} and/or \code{stroke} will
+#'           override \code{color}.
+#' @param fill \code{logical} to determine if drawn will be filled with \code{color}.
+#' @param fillOpacity \code{number} between 0 and 1 to set opacity of the drawn circle.
 #'
-#' @return
+#' @return \code{list}
+#' @seealso \code{\link{addTimeline}}
 #' @export
 styleOptions <- function(
   radius = 3,
@@ -66,23 +73,25 @@ styleOptions <- function(
   ))
 }
 
-#' Title
+#' Timeline Slider Options Helper
 #'
-#' @param start
-#' @param end
-#' @param position
-#' @param formatOutput
-#' @param enablePlayback
-#' @param enableKeyboardControls
-#' @param steps
-#' @param duration
-#' @param waitToUpdateMap
-#' @param showTicks
+#' @param start \code{number} that will be the starting value of the slider.
+#' @param end \code{number} that will be the ending value of the slider.
+#' @param position \code{string} that will be the position of the timeline.  See
+#'          \href{https://leafletjs.com/reference-1.5.0.html#control-position}{position options}.
+#' @param formatOutput \code{htmlwidgets::JS} function that outputs the date as a string
+#'          in the timeline.
+#' @param enablePlayback \code{logical} to show playback controls.
+#' @param enableKeyboardControls \code{logical} to allow playback to be controlled by
+#'           the keyboard.
+#' @param steps \code{number} for how many steps in the timeline.
+#' @param duration \code{number} for the minimum time in milliseconds of the length of playback.
+#' @param waitToUpdateMap \code{logical} to wait until user is finished before redrawing.
+#' @param showTicks \code{logical} to show ticks on the slider.
 #'
-#' @return
+#' @return \code{list}
+#' @seealso \code{\link{addTimeline}}
 #' @export
-#'
-#' @examples
 sliderOptions <- function(
   start = NULL,
   end = NULL,
