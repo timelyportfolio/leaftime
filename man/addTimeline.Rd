@@ -41,8 +41,14 @@ library(htmltools)
 
 #Build data.frame with 10 obs + 3 cols
 power <- data.frame(
-  "Latitude" = c(33.515556, 38.060556, 47.903056, 49.71, 49.041667, 31.934167, 54.140586, 54.140586, 48.494444, 48.494444),
-  "Longitude" = c(129.837222, -77.789444, 7.563056, 8.415278, 9.175, -82.343889, 13.664422, 13.664422, 17.681944, 17.681944),
+  "Latitude" = c(
+    33.515556, 38.060556, 47.903056, 49.71, 49.041667, 31.934167,
+    54.140586, 54.140586, 48.494444, 48.494444
+  ),
+  "Longitude" = c(
+    129.837222, -77.789444, 7.563056, 8.415278, 9.175, -82.343889,
+    13.664422, 13.664422, 17.681944, 17.681944
+  ),
   "start" = seq.Date(as.Date("2015-01-01"), by = "day", length.out = 10),
   "end" = seq.Date(as.Date("2015-01-01"), by = "day", length.out = 10) + 1
 )
@@ -69,7 +75,9 @@ leaflet(power_geo) \%>\%
   setView(44.0665,23.74667,2) \%>\%
   addTimeline(
     sliderOpts = sliderOptions(
-      formatOutput = htmlwidgets::JS("function(date) {return new Date(date).toDateString()}"),
+      formatOutput = htmlwidgets::JS(
+        "function(date) {return new Date(date).toDateString()}
+      "),
       position = "bottomright",
       step = 10,
       duration = 3000,
@@ -142,7 +150,9 @@ power_styled$radius <- ceiling(runif(nrow(power),3,10))
 leaflet(geojsonio::geojson_json(power_styled)) \%>\%
   addTiles() \%>\%
   setView(44.0665,23.74667,2) \%>\%
-  addCircleMarkers(data = power_styled, lat = ~Latitude, lng = ~Longitude, radius = 11) \%>\%
+  addCircleMarkers(
+    data = power_styled, lat = ~Latitude, lng = ~Longitude, radius = 11
+  ) \%>\%
   addTimeline(
     timelineOpts = timelineOptions(
       styleOptions = styleOptions(

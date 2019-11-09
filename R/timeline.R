@@ -12,6 +12,7 @@
 #' @param onchange \code{htmlwidgets::JS} function callback for when the timeline is changed.
 #'
 #' @return \code{leaflet htmlwidget}
+#' @importFrom leaflet getMapData
 #' @export
 #'
 #' @seealso \code{\link{timelineOptions}},\code{\link{sliderOptions}}

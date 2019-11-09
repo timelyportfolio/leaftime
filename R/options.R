@@ -1,22 +1,6 @@
-#' Timeline Options Helper
-#'
-#' @param getInterval \code{htmlwidgets::JS} function that returns an object with
-#'          \code{start} and \code{end} properties to specify the start and end
-#'          of the timeline range.  See
-#'          \href{https://github.com/skeate/Leaflet.timeline#getinterval-function----optional}{getInterval}.
-#' @param pointToLayer \code{htmlwidgets::JS} function that determines what is drawn
-#'          on the map.  By default, a circle marker will be drawn.  See
-#'          \href{https://leafletjs.com/reference-1.5.0.html#geojson-pointtolayer}{pointToLayer}.
-#' @param drawOnSetTime \code{logical} to draw when time is set.  Default is \code{TRUE}.  See
-#'          \href{https://github.com/skeate/Leaflet.timeline#drawonsettime-boolean----optional-default-true}{drawOnSetTime}.
-#'
-#' @return \code{list}
-#' @seealso \code{\link{addTimeline}}
-#' @export
-
-timelineOptions <- function(
-  getInterval = NULL,
-  pointToLayer = htmlwidgets::JS("
+#' @keywords internal
+pointToLayerFun <- function() {
+  htmlwidgets::JS("
 function(data, latlng) {
   var options = this;
   var styleOptions = {};
@@ -31,7 +15,38 @@ function(data, latlng) {
   return L.circleMarker(latlng, styleOptions);
 }
 "
-  ),
+  )
+}
+
+#' @keywords internal
+formatOutputFun <- function() {
+  htmlwidgets::JS("
+function(date) {
+  var dt = new Date(date); return dt.toDateString() + '<br>' + dt.toLocaleTimeString()
+}
+  "
+  )
+}
+#' Timeline Options Helper
+#'
+#' @param getInterval \code{htmlwidgets::JS} function that returns an object with
+#'          \code{start} and \code{end} properties to specify the start and end
+#'          of the timeline range.  See
+#'          \href{https://github.com/skeate/Leaflet.timeline#getinterval-function----optional}{getInterval}.
+#' @param pointToLayer \code{htmlwidgets::JS} function that determines what is drawn
+#'          on the map.  By default, a circle marker will be drawn.  See
+#'          \href{https://leafletjs.com/reference-1.5.0.html#geojson-pointtolayer}{pointToLayer}.
+#' @param styleOptions \code{list} from \code{link{styleOptions}}.
+#' @param drawOnSetTime \code{logical} to draw when time is set.  Default is \code{TRUE}.  See
+#'          \href{https://github.com/skeate/Leaflet.timeline#drawonsettime-boolean----optional-default-true}{drawOnSetTime}.
+#'
+#' @return \code{list}
+#' @seealso \code{\link{addTimeline}}
+#' @export
+
+timelineOptions <- function(
+  getInterval = NULL,
+  pointToLayer = pointToLayerFun(),
   styleOptions = leaftime::styleOptions(),
   drawOnSetTime = NULL
 ) {
@@ -96,7 +111,7 @@ sliderOptions <- function(
   start = NULL,
   end = NULL,
   position = NULL,
-  formatOutput = htmlwidgets::JS("function(date) {var dt = new Date(date); return dt.toDateString() + '<br>' + dt.toLocaleTimeString()}"),
+  formatOutput = formatOutputFun(),
   enablePlayback = NULL,
   enableKeyboardControls = NULL,
   steps = NULL,
