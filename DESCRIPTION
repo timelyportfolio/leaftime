@@ -17,8 +17,8 @@ Authors@R: c(
     )
 Maintainer: Kent Russell <kent.russell@timelyportfolio.com>
 URL: https://github.com/timelyportfolio/leaftime
-BugReports: https://github.com/timelyportfolio/lafime/issues
-Description: Use `leaflet-timeline` plugin with leaflet 'htmlwidget'.
+BugReports: https://github.com/timelyportfolio/leaftime/issues
+Description: Use 'leaflet-timeline' plugin with leaflet 'htmlwidget'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
