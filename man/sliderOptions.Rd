@@ -34,7 +34,7 @@ the keyboard.}
 \item{showTicks}{\code{logical} to show ticks on the slider.}
 }
 \value{
-\code{list}
+\code{list} of options to customize the timeline slider
 }
 \description{
 Timeline Slider Options Helper

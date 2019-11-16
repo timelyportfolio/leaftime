@@ -27,7 +27,7 @@ then \code{95\%} or less is recommended to show within the bounds of the map.}
 \item{onchange}{\code{htmlwidgets::JS} function callback for when the timeline is changed.}
 }
 \value{
-\code{leaflet htmlwidget}
+\code{leaflet htmlwidget} with an interactive slider timeline control
 }
 \description{
 Add 'leaflet-timeline' To Leaflet Map

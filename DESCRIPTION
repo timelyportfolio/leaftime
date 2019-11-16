@@ -5,7 +5,7 @@ Date: 2019-11-09
 Authors@R: c(
       person(
         "Jonathan","Skeate"
-        , role = c("aut", "cph")
+        , role = c("aut")
         , comment = "leaflet-timeline library, https://github.com/skeate/Leaflet.timeline"
       ),
       person(
@@ -18,7 +18,9 @@ Authors@R: c(
 Maintainer: Kent Russell <kent.russell@timelyportfolio.com>
 URL: https://github.com/timelyportfolio/leaftime
 BugReports: https://github.com/timelyportfolio/leaftime/issues
-Description: Use 'leaflet-timeline' plugin with leaflet 'htmlwidget'.
+Description: Use the 'leaflet-timeline' plugin with a leaflet 'htmlwidget' to add an
+    interactive timeline slider with play, pause, and step buttons to explore temporal
+    geospatial data changes.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

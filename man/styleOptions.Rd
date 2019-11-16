@@ -19,7 +19,7 @@ override \code{color}.}
 \item{fillOpacity}{\code{number} between 0 and 1 to set opacity of the drawn circle.}
 }
 \value{
-\code{list}
+\code{list} with options to style the timeline
 }
 \description{
 Timeline Style Options Helper

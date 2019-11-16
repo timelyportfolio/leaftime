@@ -40,7 +40,7 @@ function(date) {
 #' @param drawOnSetTime \code{logical} to draw when time is set.  Default is \code{TRUE}.  See
 #'          \href{https://github.com/skeate/Leaflet.timeline#drawonsettime-boolean----optional-default-true}{drawOnSetTime}.
 #'
-#' @return \code{list}
+#' @return \code{list} with options to customize the timeline
 #' @seealso \code{\link{addTimeline}}
 #' @export
 
@@ -67,7 +67,7 @@ timelineOptions <- function(
 #' @param fill \code{logical} to determine if drawn will be filled with \code{color}.
 #' @param fillOpacity \code{number} between 0 and 1 to set opacity of the drawn circle.
 #'
-#' @return \code{list}
+#' @return \code{list} with options to style the timeline
 #' @seealso \code{\link{addTimeline}}
 #' @export
 styleOptions <- function(
@@ -104,7 +104,7 @@ styleOptions <- function(
 #' @param waitToUpdateMap \code{logical} to wait until user is finished before redrawing.
 #' @param showTicks \code{logical} to show ticks on the slider.
 #'
-#' @return \code{list}
+#' @return \code{list} of options to customize the timeline slider
 #' @seealso \code{\link{addTimeline}}
 #' @export
 sliderOptions <- function(

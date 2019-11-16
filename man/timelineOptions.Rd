@@ -23,7 +23,7 @@ on the map.  By default, a circle marker will be drawn.  See
 \href{https://github.com/skeate/Leaflet.timeline#drawonsettime-boolean----optional-default-true}{drawOnSetTime}.}
 }
 \value{
-\code{list}
+\code{list} with options to customize the timeline
 }
 \description{
 Timeline Options Helper

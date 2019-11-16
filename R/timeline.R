@@ -11,7 +11,7 @@
 #'          then \code{95\%} or less is recommended to show within the bounds of the map.
 #' @param onchange \code{htmlwidgets::JS} function callback for when the timeline is changed.
 #'
-#' @return \code{leaflet htmlwidget}
+#' @return \code{leaflet htmlwidget} with an interactive slider timeline control
 #' @importFrom leaflet getMapData
 #' @export
 #'
