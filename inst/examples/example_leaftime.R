@@ -66,7 +66,8 @@ function(data, latlng) {
   })
 }
 "
-      )
+      ),
+      style = NULL
     )
   )
 
@@ -87,7 +88,8 @@ function(data, latlng) {
   })
 }
 "
-      )
+      ),
+      styleOptions = NULL
     )
   )
 

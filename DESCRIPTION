@@ -1,7 +1,7 @@
 Package: leaftime
 Title: 'Leaflet-timeline' Plugin for Leaflet
-Version: 0.1.2
-Date: 2019-11-09
+Version: 0.2.0
+Date: 2019-12-02
 Authors@R: c(
       person(
         "Jonathan","Skeate"
@@ -18,9 +18,9 @@ Authors@R: c(
 Maintainer: Kent Russell <kent.russell@timelyportfolio.com>
 URL: https://github.com/timelyportfolio/leaftime
 BugReports: https://github.com/timelyportfolio/leaftime/issues
-Description: Use the 'leaflet-timeline' plugin with a leaflet 'htmlwidget' to add an
-    interactive timeline slider with play, pause, and step buttons to explore temporal
-    geospatial data changes.
+Description: Use the 'leaflet-timeline' plugin with a leaflet widget to add an
+    interactive slider with play, pause, and step buttons to explore temporal
+    geographic spatial data changes.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
