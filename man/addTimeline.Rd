@@ -145,10 +145,6 @@ leaflet(power_geo) \%>\%
   )
 
 # to style each point differently based on the data
-power_styled <- power
-# IE does not like alpha so strip colors of alpha hex
-power_styled$color <- substr(topo.colors(6)[ceiling(runif(nrow(power),0,6))],1,7)
-power_styled$radius <- ceiling(runif(nrow(power),3,10))
 leaflet(geojsonio::geojson_json(power_styled)) \%>\%
   addTiles() \%>\%
   setView(44.0665,23.74667,2) \%>\%
@@ -157,14 +153,25 @@ leaflet(geojsonio::geojson_json(power_styled)) \%>\%
   ) \%>\%
   addTimeline(
     timelineOpts = timelineOptions(
-      styleOptions = styleOptions(
-        radius = htmlwidgets::JS("function getRadius(d) {return +d.properties.radius}"),
-        color = htmlwidgets::JS("function getColor(d) {return d.properties.color}"),
-        fillOpacity = 1,
-        stroke = FALSE
+      styleOptions = NULL, # make sure default style does not override
+      pointToLayer = htmlwidgets::JS(
+"
+function(data, latlng) {
+  return L.circleMarker(
+    latlng,
+    {
+      radius: data.properties.radius,
+      color: data.properties.color,
+      fillColor: data.properties.color,
+      fillOpacity: 1
+    }
+  );
+}
+"
       )
     )
   )
+
 
 
 # we can use onchange to handle timeline change event
