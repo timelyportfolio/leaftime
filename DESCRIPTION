@@ -30,5 +30,6 @@ Depends:
     leaflet (>= 2.0.0)
 Imports:
     htmlwidgets,
-    htmltools,
+    htmltools
+Suggests: 
     geojsonio
