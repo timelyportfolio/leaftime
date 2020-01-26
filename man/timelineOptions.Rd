@@ -4,8 +4,12 @@
 \alias{timelineOptions}
 \title{Timeline Options Helper}
 \usage{
-timelineOptions(getInterval = NULL, pointToLayer = pointToLayerFun(),
-  styleOptions = leaftime::styleOptions(), drawOnSetTime = NULL)
+timelineOptions(
+  getInterval = NULL,
+  pointToLayer = pointToLayerFun(),
+  styleOptions = leaftime::styleOptions(),
+  drawOnSetTime = NULL
+)
 }
 \arguments{
 \item{getInterval}{\code{htmlwidgets::JS} function that returns an object with
@@ -17,7 +21,7 @@ of the timeline range.  See
 on the map.  By default, a circle marker will be drawn.  See
 \href{https://leafletjs.com/reference-1.5.0.html#geojson-pointtolayer}{pointToLayer}.}
 
-\item{styleOptions}{\code{list} from \code{link{styleOptions}}.}
+\item{styleOptions}{\code{list} from \code{\link{styleOptions}}.}
 
 \item{drawOnSetTime}{\code{logical} to draw when time is set.  Default is \code{TRUE}.  See
 \href{https://github.com/skeate/Leaflet.timeline#drawonsettime-boolean----optional-default-true}{drawOnSetTime}.}

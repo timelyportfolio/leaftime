@@ -3,16 +3,8 @@ pointToLayerFun <- function() {
   htmlwidgets::JS("
 function(data, latlng) {
   var options = this;
-  var styleOptions = {};
 
-  Object.keys(options.styleOptions).forEach(function(ky) {
-    if(typeof options.styleOptions[ky] === 'function') {
-      styleOptions[ky] = options.styleOptions[ky](data);
-    } else {
-      styleOptions[ky] = options.styleOptions[ky];
-    }
-  })
-  return L.circleMarker(latlng, styleOptions);
+  return L.circleMarker(latlng);
 }
 "
   )
@@ -36,7 +28,7 @@ function(date) {
 #' @param pointToLayer \code{htmlwidgets::JS} function that determines what is drawn
 #'          on the map.  By default, a circle marker will be drawn.  See
 #'          \href{https://leafletjs.com/reference-1.5.0.html#geojson-pointtolayer}{pointToLayer}.
-#' @param styleOptions \code{list} from \code{link{styleOptions}}.
+#' @param styleOptions \code{list} from \code{\link{styleOptions}}.
 #' @param drawOnSetTime \code{logical} to draw when time is set.  Default is \code{TRUE}.  See
 #'          \href{https://github.com/skeate/Leaflet.timeline#drawonsettime-boolean----optional-default-true}{drawOnSetTime}.
 #'
@@ -53,7 +45,7 @@ timelineOptions <- function(
   Filter(Negate(is.null),list(
     getInterval = getInterval,
     pointToLayer = pointToLayer,
-    styleOptions = styleOptions,
+    style = styleOptions,
     drawOnSetTime = drawOnSetTime
   ))
 }
