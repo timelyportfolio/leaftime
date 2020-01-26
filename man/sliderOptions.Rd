@@ -4,10 +4,18 @@
 \alias{sliderOptions}
 \title{Timeline Slider Options Helper}
 \usage{
-sliderOptions(start = NULL, end = NULL, position = NULL,
-  formatOutput = formatOutputFun(), enablePlayback = NULL,
-  enableKeyboardControls = NULL, steps = NULL, duration = NULL,
-  waitToUpdateMap = NULL, showTicks = NULL)
+sliderOptions(
+  start = NULL,
+  end = NULL,
+  position = NULL,
+  formatOutput = formatOutputFun(),
+  enablePlayback = NULL,
+  enableKeyboardControls = NULL,
+  steps = NULL,
+  duration = NULL,
+  waitToUpdateMap = NULL,
+  showTicks = NULL
+)
 }
 \arguments{
 \item{start}{\code{number} that will be the starting value of the slider.}

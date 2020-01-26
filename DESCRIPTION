@@ -1,7 +1,7 @@
 Package: leaftime
 Title: 'Leaflet-timeline' Plugin for Leaflet
 Version: 0.2.0
-Date: 2019-12-02
+Date: 2020-01-26
 Authors@R: c(
       person(
         "Jonathan","Skeate"
@@ -24,7 +24,7 @@ Description: Use the 'leaflet-timeline' plugin with a leaflet widget to add an
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Depends:
     R (>= 3.1.0),
     leaflet (>= 2.0.0)

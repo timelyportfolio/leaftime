@@ -4,8 +4,14 @@
 \alias{styleOptions}
 \title{Timeline Style Options Helper}
 \usage{
-styleOptions(radius = 3, color = NULL, stroke = TRUE, fill = TRUE,
-  fillColor = NULL, fillOpacity = NULL)
+styleOptions(
+  radius = 3,
+  color = NULL,
+  stroke = TRUE,
+  fill = TRUE,
+  fillColor = NULL,
+  fillOpacity = NULL
+)
 }
 \arguments{
 \item{radius}{\code{number} to specify radius of drawn circle.}

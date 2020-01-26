@@ -4,8 +4,12 @@
 \alias{timelineOptions}
 \title{Timeline Options Helper}
 \usage{
-timelineOptions(getInterval = NULL, pointToLayer = pointToLayerFun(),
-  styleOptions = leaftime::styleOptions(), drawOnSetTime = NULL)
+timelineOptions(
+  getInterval = NULL,
+  pointToLayer = pointToLayerFun(),
+  styleOptions = leaftime::styleOptions(),
+  drawOnSetTime = NULL
+)
 }
 \arguments{
 \item{getInterval}{\code{htmlwidgets::JS} function that returns an object with
