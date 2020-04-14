@@ -1,7 +1,7 @@
 Package: leaftime
 Title: 'Leaflet-timeline' Plugin for Leaflet
-Version: 0.2.0
-Date: 2020-01-26
+Version: 0.3.0
+Date: 2020-04-13
 Authors@R: c(
       person(
         "Jonathan","Skeate"
